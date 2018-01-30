@@ -65,11 +65,11 @@
 <br>
     <form action="login.php" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Username">
+        <input type="text" class="form-control" name="user" placeholder="Username">
         <i class="fa fa-user form-control-feedback"></i>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="pass" placeholder="Password">
         <i class="fa fa-lock form-control-feedback"></i>
       </div>
       <div class="row">
@@ -90,11 +90,12 @@
 
 if(isset($_POST['submit']))
 {
-  if ($_POST['user']==admin);
-  {
+    if ($_POST['user']=='admin')
+    {
     ?>
+            <script>
               swal({
-                  title: "Success!",
+                  title: "Success !",
                   text: "Login Successfully !",
                   type: "success",
                   closeOnConfirm: false,
@@ -103,14 +104,17 @@ if(isset($_POST['submit']))
                 function(){
                   setTimeout(function(){
                      window.location.href="admin.php";
-                  }, 1000);
+                  }, 2000);
                 });
+
   
-  <?php
-}
-  else
-  {
-?>
+            </script>
+    <?php
+    }
+    else
+    {
+       ?>
+            <script>
               swal({
                   title: "Failed !",
                   text: "Login Failed !",
@@ -121,14 +125,18 @@ if(isset($_POST['submit']))
                 function(){
                   setTimeout(function(){
                      window.location.href="login.php";
-                  }, 1000);
+                  }, 2000);
                 });
-  
-  <?php
-  }
-}
 
+  
+            </script>
+    <?php
+
+    }
+  
+}
 ?>
+
 
 
   </div>
